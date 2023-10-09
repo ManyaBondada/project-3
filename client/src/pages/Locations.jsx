@@ -11,10 +11,12 @@ const Locations = () => {
     useEffect(() => {
         (async () => {
             try {
-                const locationsData = await LocationsAPI.getAllLocations()
+                let locationsData = await LocationsAPI.getAllLocations()
+                locationsData = locationsData.data
+                console.log(locationsData)
                 setLocations(locationsData)
 
-                setVenueNames({venue1: locationsData[0].name, venue2: locationsData[1].name, venue3: locationsData[2].name, venue4: locationsData[3].name})
+                setVenueNames({venue1: "Echo Lounge", venue2: "House of Blues", venue3: "Pavilion", venue4: "American Airlines Center"})
                 setListeners()
             }
             catch (error) {
